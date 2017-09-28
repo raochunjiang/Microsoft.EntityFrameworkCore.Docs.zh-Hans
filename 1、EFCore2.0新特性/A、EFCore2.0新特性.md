@@ -12,7 +12,7 @@
 
 现在我们已经可以将两个或多个实体类型映射到同一张数据表，他们将共享主键列，每一个数据行可以对应两个或多个实体对象。
 
-为了使用表隔离，必须在共享同一张表的所有实体类型（引用主键的外键属性上）配置可识别的关系：
+为了使用表隔离，必须在共享同一张表的所有实体类型之间配置（从主键到外键属性的）可识别的关系：
 
 ```C#
 modelBuilder.Entity<Product>()
@@ -24,9 +24,9 @@ modelBuilder.Entity<ProductDetails>().ToTable)("Products");
 
 ### 附属类型
 
-一个附属实体类型可以跟另一个附属实体类型共享同一个运行时类型。但是，由于无法通过运行时类型来识别该实体类型，所以必须从另一个实体类型导航到该实体类型。包含导航定义的实体类型为所有者。当针对所有者实体类型进行查询时，附属实体类型默认将被包含进来。
+一个附属实体类型可以跟另一个附属实体类型共享同一个运行时类型。但是，由于无法仅通过运行时类型来识别该实体类型，所以必须从另一个实体类型导航到该实体类型。包含导航定义的实体类型为所有者。当针对所有者实体类型进行查询时，附属实体类型默认将被包含进来。
 
-按照惯例，表隔离将为附属类型创建影子主键并且其将被映射到所有者类型的同一张表。使用附属类型跟 EF6 中使用复杂类型相似：
+按照惯例，通过使用表隔离可以为附属类型创建影子主键并且其将被映射到与所有者类型相同的数据表。这允许我们像使用 EF 6 中的复杂类型一样使用附属类型 ：
 
 ```C#
 modelBuilder.Entity<Order>().OwnOne(p=> p.OrderDetails, cb=> 
@@ -81,9 +81,9 @@ public class BloggingContext : DbContext
 }
 ```
 
-我们定义了一个模型级过滤器以让实体类型 `Post` 的实例实现多租户和软删除。注意这里使用了 DbContext 级别的属性 `TenantId`。模型级过滤器将使用合适的上下文实例上的值（即正在执行查询的上下文实例）。
+我们定义了一个模型级过查询滤器以让实体类型 `Post` 的实例实现多租户和软删除。注意这里使用了 DbContext 级别的属性 `TenantId`。模型级查询过滤器将使用合适的上下文实例上的值（即正在执行查询的上下文实例）。
 
-如果需要，可以通过 IgnoreQueryFIlters() 操作来在个别 LINQ 查询操作时禁用过滤器。
+如果需要，可以通过 IgnoreQueryFilters() 操作来在个别 LINQ 查询操作时禁用过滤器。
 
 #### 局限性
 
@@ -96,7 +96,7 @@ public class BloggingContext : DbContext
 
 Preview 2 包含一个来自 [Paul Middleton](https://github.com/pmiddleton) 的重要的贡献：将数据库标量函数映射到存根方法以在 LINQ 查询中使用它们并将他们解析为 SQL。
 
-以下是关于该功能如何使用的简要描述：
+以下是关于该功能的用法简要描述：
 
 在 `DbContext` 上声明一个静态方法并对该方法标注 `DbFunctionAttribute` 特性：
 
@@ -114,7 +114,7 @@ public class BloggingContext : DbContext
 像这样的方法会自动被注册。一旦一个方法被注册，你就可以在你查询的任何地方使用它：
 
 ```C#
-var query = 
+var query =
     from p in context.Posts
     where BloggingContext.PostReadCount(p.Id) > 5
     select p;
@@ -122,7 +122,7 @@ var query =
 
 需要注意一些事：
 
-* 按照惯例，在生成 SQL 的时候方法的名称会与函数的名称一致（该案例中是一个用户定义的函数），但是你可以在注册方法时重写该名称及其对应的数据库模式。
+* 按照惯例，在生成 SQL 的时候方法的名称将被用作函数名称（该案例中是一个用户定义的函数），但是你可以在注册方法时重写该名称及其对应的数据库模式。
 * 现在只支持标量函数。
 * 你必须在数据库中创建对应的函数，EF Core 迁移不会关心这种函数的创建。
 
@@ -147,9 +147,9 @@ builder.ApplyConfiguration(new CustomerConfiguration());
 
 ## 高性能
 
-### DbContext 池
+### DbContext 对象池
 
-在 ASP.NET Core 应用程序中使用 EF Core 的基础模式通常涉及到将自定义的 DbContext 类型注册到依赖注入系统，然后后续编码中通过控制器的构造方法参数获取该类型的实例。这意味着每个请求都会创建该 DbContext 的实例。
+在 ASP.NET Core 应用程序中使用 EF Core 的基础模式通常涉及到将自定义的 DbContext 类型注册到依赖注入系统，然后在后续编码中通过控制器的构造方法参数获取该类型的实例。这意味着每个请求都会创建该 DbContext 的实例。
 
 在 2.0 版本中我们介绍了一个新的方式来将自定义 DbContext 类型注册到依赖注入系统，其中明显介绍了一个复用 DbContext 实例的对象池。要使用 DbContext 对象池，可以在注册服务的时候将 AddDbContext 改为 AddDbContextPool：
 
@@ -168,20 +168,20 @@ services.AddDbContextPool<BolggingContext>(
 新方法引入了对 DbContext 的 OnConfigure 方法的一些功能限制。
 
     警告：
-    如果从 DbContext 继承的类型中你要自己维护不能跨请求共享的状态（比如私有字段），那么请避免使用 DbContext 池。EF Core 只会重置 DbContext 实例被添加到对象池之前所知道的状态。
+    如果从 DbContext 继承的类型中你要自己维护不能跨请求共享的状态（比如私有字段），那么请避免使用 DbContext 对象池。EF Core 只会重置 DbContext 实例被添加到对象池之前所知道的状态。
 
 ### 显式编译查询
 
-这是第二个选择性加入的性能相关的功能，该功能被设计来满足高可扩展的场景。
+这是第二个选择性加入的性能相关的功能，该功能被设计来满足大规模的应用场景。
 
 在之前的 EF 版本和 LINQ to SQL 中就已经可以使用手动或显式编译查询了，这允许应用程序对翻译后的查询进行缓存，如此就可以只对查询计算一次，重复执行。
 
-尽管常规情况下 EF Core 会根据查询表达式的哈希散列表示自动对查询进行编译和缓存，该机制可以用来绕过哈希计算和缓存查找，允许应用程序调用一个委托以使用现有的编译好的查询，如此以获得较小的性能提升。
+尽管常规情况下 EF Core 会根据查询表达式的哈希散列表示自动对查询进行编译和缓存，该机制可以用来绕过哈希计算和缓存查找，允许应用程序调用一个委托以使用现有的编译好的查询，如此以获得小小的性能提升。
 
 ```C#
 // 创建显式编译查询
-private static Func<CustomerContext,int,Customer> _customerById = 
-    EF.CompileQuery((CustomerContext db,int id) => 
+private static Func<CustomerContext,int,Customer> _customerById =
+    EF.CompileQuery((CustomerContext db,int id) =>
         db.Customers
             .Include(c => c.Address)
             .Single(c => c.Id == id));
