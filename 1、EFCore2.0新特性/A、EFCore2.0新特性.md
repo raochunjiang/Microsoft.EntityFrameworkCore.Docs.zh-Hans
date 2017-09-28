@@ -294,3 +294,16 @@ public class MyPluralizer:IPluralizer
 
 ### 每个模型只有一个提供程序
 
+显著地增强了提供程序与模型的交互方式，并且简化了针对不同提供程序的惯例、注释和流式API工作方式。
+
+EF Core 2.0 正在为每个不同的提供程序构建一个不同的 [IModel](https://github.com/aspnet/EntityFrameworkCore/blob/dev/src/EFCore/Metadata/IModel.cs)。通常这对于应用程序是透明的。这促进了底层元数据 API 的简化，使得对 _公共关系元数据概念_ 的任何访问总是通过调用 `.Relational` 来实现，而不是 `.SqlServer`，`.Sqlite` 等等。
+
+### 统一的日志记录和诊断
+
+现在，（基于 ILogger 的）日志记录和（基于 DiagnosticSource 的）诊断机制可以共享更多代码。
+
+发送给某个 ILogger 的消息事件 ID 在 EF Core 2.0 中发生了改变。现在的事件 ID 对于整个 EF Core 代码来说是唯一的了。还有，这些消息现在遵循了 MVC 中使用的结构化日志的标准模式。
+
+日志记录分类也发生了改变。现在公共已知的一组分类可以通过 [DbLoggerCategory](https://github.com/aspnet/EntityFramework/blob/dev/src/EFCore/DbLoggerCategory.cs) 来访问。
+
+诊断事件现在使用与 `ILogger` 消息一致的事件 ID 名称。
