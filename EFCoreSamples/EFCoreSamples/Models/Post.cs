@@ -8,5 +8,7 @@
 
         public int BlogId { get; set; }
         public Blog Blog { get; set; }
+        public bool IsDeleted { get; internal set; }
+        public int TenantId { get; internal set; }
     }
 }
