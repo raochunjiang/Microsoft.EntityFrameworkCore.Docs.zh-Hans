@@ -53,7 +53,7 @@ namespace Intro
         public DbSet<Post> Posts { get; set; }
     }
 
-    protected override void OnConfigure(DbContextOptionsBuilder optionsBuilder)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyDatabase;Trusted_Connection=True;");
     }
