@@ -8,17 +8,17 @@
 
 ### .NET Standard 1.3
 
-ASP.NET Core，包括 Windows，OSX 和 Linux 上的 .NET Framework 和 .NET Core
+包括目标平台为 Windows，OSX 和 Linux 的 .NET Framework 和 .NET Core 的 ASP.NET Core
 
 ## 建模
 
 ### 基础建模
 
-基于 POCO（简单的C#对象） 实体建模。POCO 实体由公共标量类型（`int`,`string` 等等）的 get/set 属性构成。
+基于具有公共标量类型的 get/set 属性的 POCO（简单 C# 对象）实体。
 
 ### 关系和导航属性
 
-一对多 和 一对零/一 关系可以在模型中通过外键来指定，引用类型中简单集合的导航属性可以使用这些关系来关联。
+一对多 和 一对零/一 关系在模型中可以基于外键来指定，简单集合或引用类型的导航属性可以使用这些关系来关联。
 
 ### 内置惯例
 
@@ -26,7 +26,7 @@ ASP.NET Core，包括 Windows，OSX 和 Linux 上的 .NET Framework 和 .NET Cor
 
 ### 流式 API
 
-允许你重写数据库上下文中的 `OnModelCreating` 方法以进一步配置由惯例发现的模型做。
+允许你重写数据库上下文中的 `OnModelCreating` 方法以进一步配置由惯例发现的模型。
 
 ### 数据注解
 
@@ -42,11 +42,11 @@ ASP.NET Core，包括 Windows，OSX 和 Linux 上的 .NET Framework 和 .NET Cor
 
 ### 数据库生成值
 
-允许在数据库插入或更新操作时生成（默认）值（包括可计算列的值）。
+允许在数据库插入（默认值）或更新（计算列值）操作时生成值。
 
-### SQL Server 中的序列
+### SQL Server 中的 Sequences
 
-允许在模型中定义序列对象
+允许在模型中定义 Sequences （顺序）对象
 
 ### 唯一约束
 
@@ -58,9 +58,9 @@ ASP.NET Core，包括 Windows，OSX 和 Linux 上的 .NET Framework 和 .NET Cor
 
 ### 影子状态属性
 
-允许在模型中定义未声明、未存储在 .NET 类中的的属性，但它们可以被 EF Core 跟踪和更新。通常用作不想要暴露的外键属性。
+允许在模型中定义未在 .NET 类型中声明、存储,但可以被 EF Core 跟踪和更新的属性 。通常用作不想要暴露的外键属性。
 
-### 表对应继承体系模式
+### 每张表对应一个继承体系模式
 
 允许同一个继承体系中的实体保存到单个表中。通过可识别列来鉴别数据库中给定记录的实体类型。
 
@@ -72,11 +72,11 @@ ASP.NET Core，包括 Windows，OSX 和 Linux 上的 .NET Framework 和 .NET Cor
 
 ### 快照变更跟踪
 
-通过对比当前状态和原状态的副本（快照）来自动检测实体中的变更。
+允许通过对比当前状态和原状态的副本（快照）来自动检测实体中的变更。
 
 ### 通知变更跟踪
 
-当修改实体属性值时通知变更跟踪器。
+允许在修改实体属性值时通知变更跟踪器。
 
 ### 访问跟踪状态
 
