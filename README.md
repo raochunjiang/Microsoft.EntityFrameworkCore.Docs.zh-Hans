@@ -4,9 +4,11 @@
 
 ## 大纲
 
-> [1、EF Core 2.0 新特性](./1、EFCore2.0新特性/A、EFCore2.0新特性.md)   
->> [EF Core 1.0(以前的版本)](./1、EFCore2.0新特性/B、EFCore1.0（以前的版本）.md)   
->> [EF Core 1.1(以前的版本)](./1、EFCore2.0新特性/C、EFCore1.1（以前的版本）.md)   
+* [1、EF Core 2.0 新特性](./1、EFCore2.0新特性/A、EFCore2.0新特性.md)
+    * [EF Core 1.0(以前的版本)](./1、EFCore2.0新特性/B、EFCore1.0（以前的版本）.md)
+    * [EF Core 1.1(以前的版本)](./1、EFCore2.0新特性/C、EFCore1.1（以前的版本）.md)
+* [2、入门指南](./2、入门指南/A、入门指南.md)
+    * [安装 EF Core](./2、入门指南/B、安装EFCore.md)
 
 ## Entity Framework Core 快速预览
 
