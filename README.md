@@ -9,6 +9,7 @@
     * [EF Core 1.1(以前的版本)](./1、EFCore2.0新特性/C、EFCore1.1（以前的版本）.md)
 * [2、入门指南](./2、入门指南/A、入门指南.md)
     * [安装 EF Core](./2、入门指南/B、安装EFCore.md)
+    * [.NET Framework（Console、WinForm、WPF等等）](./2、入门指南/C、.NETFramework/A、.NETFramework.md)
 
 ## Entity Framework Core 快速预览
 
