@@ -4,7 +4,7 @@
 
 > 提示
 >
-> 你可以[在 GitHub 上查阅当前文章的涉及的代码样例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/GetStarted/FullNet/ConsoleApp.NewDb)。
+> 你可以[在 GitHub 上查阅当前文章涉及的代码样例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/GetStarted/FullNet/ConsoleApp.NewDb)。
 
 ## 先决条件
 
