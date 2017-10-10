@@ -12,7 +12,7 @@
     * [.NET Framework（Console、WinForm、WPF等等）](./2、入门指南/C、.NETFramework/A、.NETFramework.md)
         * [.NET Framework - 新数据库](./2、入门指南/C、.NETFramework/B、新数据库.md)
         * [.NET Framework - 现有数据库](./2、入门指南/C、.NETFramework/C、现有数据库.md)
-    (./2、入门指南/D、.NETCore/A、.NETCore.md)
+     [.NET Core（Windows、OSX、Linux 等等）](./2、入门指南/D、.NETCore/A、.NETCore.md)
         * [.NET Core - 新数据库](./2、入门指南/C、.NETCore/B、新数据库.md)
 
 
