@@ -81,7 +81,7 @@ namespace EFGetStarted.ConsoleApp
 
 > 提示
 >
-> 在真是的应用程序里面你会将每个类型放到独立的文件中，并且将链接字符串放到 `App.config` 文件中，然后使用 `ConfigurationManager` 来读取它。为了简单起见，我们将当前课程中的所有代码都放到单一的文件中。
+> 在真实的应用程序里面你会将每个类型放到独立的文件中，并且将链接字符串放到 `App.config` 文件中，然后使用 `ConfigurationManager` 来读取它。为了简单起见，我们将当前课程中的所有代码都放到单一的文件中。
 
 ## 创建数据库
 
