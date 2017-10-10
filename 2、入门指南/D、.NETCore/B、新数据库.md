@@ -1,6 +1,6 @@
 # .NET Core 下的 EF Core 新数据库入门指南
 
-在这个演练中，你构建一个针对 SQLite 数据库执行基础数据问的 .NET Core 控制台应用程序。你将使用迁移来从模型创建数据库。查看 [ASP.NET Core - 新数据库](../E、ASP.NETCore/A、ASP.NETCore.md) 可了解相应的 Visual Studio 版本，其中使用的是 ASP.NET Core MVC。
+在这个演练中，你将构建一个针对 SQLite 数据库执行基础数据问的 .NET Core 控制台应用程序。你将使用迁移来从模型创建数据库。查看 [ASP.NET Core - 新数据库](../E、ASP.NETCore/A、ASP.NETCore.md) 可了解相应的 Visual Studio 版本，其中使用的是 ASP.NET Core MVC。
 
 > 注意
 >
@@ -15,7 +15,7 @@
 以下是完成当前演练所需的先决条件：
 
 * 支持 .NET Core 的操作系统
-* [.NET Core SDK](https://www.microsoft.com/net/core) 2.0 （尽管）。
+* [.NET Core SDK](https://www.microsoft.com/net/core) 2.0 （尽管通过少量修改就可以通过入门简介了解如何使用之前的版本创建应用程序）。
 
 ## 创建新项目
 
