@@ -1,6 +1,6 @@
 # .NET Framework 下的 EF Core 新数据库入门指南
 
-在这个演练中，你将构建一个使用 Entity Framework Core 进行基础数据访问的 ASP.NET Core MVC 应用程序。你将使用迁移来从模型创建数据库。查看 [其他资源](#AdditionalResources) 以了解更多的 Entity Framework Core 教程。
+在这个演练中，你将构建一个使用 Entity Framework Core 进行基础数据访问的 ASP.NET Core MVC 应用程序。你将使用迁移来从模型创建数据库。查看 [其他资源](#其他资源) 以了解更多的 Entity Framework Core 教程。
 
 当前教程需要：
 
@@ -163,8 +163,6 @@ public void ConfigureServices(IServiceCollection services)
 ![create.png](./create.png)
 
 ![index-new-db.png](./index-new-db.png)
-
-<span id="AdditionalResources"></span>
 
 ## 其他资源
 
