@@ -89,7 +89,7 @@ namespace EFGetStarted.ConsoleApp
 
 * 工具 > NuGet 包管理器 > 程序包管理控制台
 * 运行 `Add-Migrations MyFirstMigration` 以搭建一个迁移基架来为你的模型创建初始的表集合。
-* 运行 `Update-Database` 以将新的迁移引用到数据库。由于你的数据库还不存在，所以这里将在应用迁移之前为你创建数据库
+* 运行 `Update-Database` 以将新的迁移应用到数据库。由于你的数据库还不存在，所以这里将在应用迁移之前为你创建数据库
 
 > 提示
 >

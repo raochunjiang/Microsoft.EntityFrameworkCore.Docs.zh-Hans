@@ -125,7 +125,7 @@ namespace ConsoleApp.SQLite
 你已经有一个模型了，你可以使用[迁移](https://docs.microsoft.com/aspnet/core/data/ef-mvc/migrations#introduction-to-migrations)来创建数据库。
 
 * 运行 `dotnet ef migrations add InitialCreate` 以搭建迁移基架和创建模型对应的初始表集合。
-* 运行 `dotnet ef database update`  以将新的迁移引用到数据库。该命令会在应用迁移之前创建数据库。
+* 运行 `dotnet ef database update`  以将新的迁移应用到数据库。该命令会在应用迁移之前创建数据库。
 
 > 注意
 >
