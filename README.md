@@ -17,6 +17,7 @@
     * [ASP.NET Core](./2、入门指南/E、ASP.NETCore/A、ASP.NETCore.md)
         * [ASP.NET Core - 新数据库](./2、入门指南/E、ASP.NETCore/B、新数据库.md)
         * [ASP.NET Core - 现有数据库](./2、入门指南/E、ASP.NETCore/C、现有数据库.md)
+        * [ASP.NET Core 网站上的 EF Core 教程](https://docs.microsoft.com/zh-cn/aspnet/core/data/ef-mvc/intro)
 
 ## Entity Framework Core 快速预览
 
