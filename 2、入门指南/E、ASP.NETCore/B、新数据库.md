@@ -1,4 +1,4 @@
-# .NET Framework 下的 EF Core 新数据库入门指南
+# ASP.NET Core 下的 EF Core 新数据库入门指南
 
 在这个演练中，你将构建一个使用 Entity Framework Core 进行基础数据访问的 ASP.NET Core MVC 应用程序。你将使用迁移来从模型创建数据库。查看 [其他资源](#其他资源) 以了解更多的 Entity Framework Core 教程。
 
@@ -141,12 +141,13 @@ public void ConfigureServices(IServiceCollection services)
 
 ## 创建控制器
 
-在项目中搭建基架：
+接下来我们将启用项目中的 MVC 基架：
 
 * 在**解决方案资源管理器** 中右键点击 **Controllers** 目录，选择 **添加 > 控制器**。
 * 选择 **MVC 依赖项** 后点击 **添加**，然后选择 **最小依赖项** 后点击 **添加**
+* 你可以 `ScaffoldingReadMe.txt` 文件中的介绍
 
-这样就搭建了 MVC 基架。我们可以为 `Blog` 实体添加一个控制器了。
+这样就启用了 MVC 基架。我们可以为 `Blog` 实体添加一个控制器了。
 
 * 在**解决方案资源管理器** 中右键点击 **Controllers** 目录，选择 **添加 > 控制器**。
 * 选择 **视图使用 Entity Framework 的控制器**，然后点击 **添加**。

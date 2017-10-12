@@ -118,7 +118,7 @@ namespace EFGetStarted.ConsoleApp.ExistingDb
 }
 ```
 
-上下文则表示一个数据库结点，该结点允许你查询和保存上述实体类型的实例。
+上下文则表示一个数据库会话，该会话允许你查询和保存上述实体类型的实例。
 
 ```C#
 using Microsoft.EntityFrameworkCore;

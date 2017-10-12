@@ -4,7 +4,7 @@
 
 > 注意
 >
-> [.NET Core SDK](https://www.microsoft.com/net/download/core) 已不再支持 `project.json` 或 Visual Studio 2015。我们建议你 [将 project.json 迁移到 csproj](https://docs.microsoft.com/dotnet/articles/core/migration/)。如果你正在使用 Visual Studio，我们建议你迁移到 [Visual Studio 20177](https://www.visualstudio.com/downloads/)
+> [.NET Core SDK](https://www.microsoft.com/net/download/core) 已不再支持 `project.json` 或 Visual Studio 2015。我们建议你 [将 project.json 迁移到 csproj](https://docs.microsoft.com/dotnet/articles/core/migration/)。如果你正在使用 Visual Studio，我们建议你迁移到 [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
 > 提示
 > 
