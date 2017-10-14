@@ -20,6 +20,9 @@
         * [ASP.NET Core 网站上的 EF Core 教程](https://docs.microsoft.com/zh-cn/aspnet/core/data/ef-mvc/intro)
     * [通用 Windows 平台（UWP）](./2、入门指南/F、通用Windows平台（UWP）/A、通用Windows平台（UWP）.md)
         * [UWP - 新数据库](./2、入门指南/F、通用Windows平台（UWP）//B、新数据库.md)
+* [3、创建模型](./3、创建模型/A、创建模型.md)
+    * [包含和排除类型](./3、创建模型/B、包含和排除类型.md)
+    * [包含和排除属性](./3、创建模型/C、包含和排除属性.md)
 
 ## Entity Framework Core 快速预览
 
