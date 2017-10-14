@@ -50,7 +50,7 @@ public class AuditEntry
 
 ## 数据注解
 
-可以使用数据注解来将某个类型从模型中排除。
+可以使用数据注解将某个类型从模型中排除。
 
 ```C#
 public class Blog
@@ -70,7 +70,7 @@ public class BlogMetadata
 
 ## 流式 API
 
-可以使用流式 API 来将某个类型从模型中排除
+可以使用流式 API 将某个类型从模型中排除
 
 ```C#
 class MyContext : DbContext
