@@ -139,10 +139,541 @@ public class Post
 
 查看 [必须的和可选的关系](#必须的和可选的关系) 可详细了解必须的关系和可选的关系。
 
-查看 [级联删除]()
+查看 [级联删除](../5、保存数据/D、级联删除.md) 可详细了解不同的删除行为和惯例使用的默认行为。
 
 ## 数据注解
 
+有两个数据注解可用于配置关系：`[ForeignKey]` 和 `[InverseProperty]`。
+
+### [ForeignKey]
+
+可以使用数据注解来配置指定哪个属性应该用作给定关系的外键属性。通常在按照惯例没有找到外键属性时才这样做。
+
+```C#
+public class Blog
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+
+    public List<Post> Posts { get; set; }
+}
+
+public class Post
+{
+    public int PostId { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+
+    public int BlogForeignKey { get; set; }
+
+    [ForeignKey("BlogForeignKey")]
+    public Blog Blog { get; set; }
+}
+```
+
+> 提示
+>
+> 可以将 [ForeignKey] 标注同时放到关系中的两个导航属性上。也可以不放在依赖实体类型的导航属性上。
+
+### [InverseProperty]
+
+可以使用数据注解来配置依赖实体和主实体上的导航属性的配对方式。通常在两个实体类型之间有多对导航属性时才这么做。
+
+```C#
+public class Post
+{
+    public int PostId { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+
+    public int AuthorUserId { get; set; }
+    public User Author { get; set; }
+
+    public int ContributorUserId { get; set; }
+    public User Contributor { get; set; }
+}
+
+public class User
+{
+    public string UserId { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+
+    [InverseProperty("Author")]
+    public List<Post> AuthoredPosts { get; set; }
+
+    [InverseProperty("Contributor")]
+    public List<Post> ContributedToPosts { get; set; }
+}
+```
+
 ## 流式 API
 
+要使用流式 API 配置关系的话，首先需要识别构成关系的导航属性。`HasOne` 或者 `HasMany` 能够标识出你要开始配置的实体类型的导航属性。然后链式调用 `WithOne` 或者 `WithMany` 来分辨逆向导航。`HasOne`/ `WithOne` 用于引用导航属性，`HasMany`/`WithMany` 用于集合导航属性。
+
+```C#
+class MyContext : DbContext
+{
+    public DbSet<Blog> Blogs { get; set; }
+    public DbSet<Post> Posts { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Post>()
+            .HasOne(p => p.Blog)
+            .WithMany(b => b.Posts);
+    }
+}
+
+public class Blog
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+
+    public List<Post> Posts { get; set; }
+}
+
+public class Post
+{
+    public int PostId { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+
+    public Blog Blog { get; set; }
+}
+```
+
+### 单一导航属性
+
+如果你只有一个导航属性，那么可以使用 `WithOne` 和 `WithMany` 的无参数重载。这表明在关系的另一端有一个概念上的引用或集合，但其实体类型不包含导航属性的定义。
+
+```C#
+class MyContext : DbContext
+{
+    public DbSet<Blog> Blogs { get; set; }
+    public DbSet<Post> Posts { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Blog>()
+            .HasMany(b => b.Posts)
+            .WithOne();
+    }
+}
+
+public class Blog
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+
+    public List<Post> Posts { get; set; }
+}
+
+public class Post
+{
+    public int PostId { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+}
+```
+
+### 外键
+
+可以使用流式 API 来配置哪个属性被用作给定关系的外键属性。
+
+```C#
+class MyContext : DbContext
+{
+    public DbSet<Blog> Blogs { get; set; }
+    public DbSet<Post> Posts { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Post>()
+            .HasOne(p => p.Blog)
+            .WithMany(b => b.Posts)
+            .HasForeignKey(p => p.BlogForeignKey);
+    }
+}
+
+public class Blog
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+
+    public List<Post> Posts { get; set; }
+}
+
+public class Post
+{
+    public int PostId { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+
+    public int BlogForeignKey { get; set; }
+    public Blog Blog { get; set; }
+}
+```
+
+以下列出的代码显示了如何配置一个组合键。
+
+```C#
+class MyContext : DbContext
+{
+    public DbSet<Car> Cars { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Car>()
+            .HasKey(c => new { c.State, c.LicensePlate });
+
+        modelBuilder.Entity<RecordOfSale>()
+            .HasOne(s => s.Car)
+            .WithMany(c => c.SaleHistory)
+            .HasForeignKey(s => new { s.CarState, s.CarLicensePlate });
+    }
+}
+
+public class Car
+{
+    public string State { get; set; }
+    public string LicensePlate { get; set; }
+    public string Make { get; set; }
+    public string Model { get; set; }
+
+    public List<RecordOfSale> SaleHistory { get; set; }
+}
+
+public class RecordOfSale
+{
+    public int RecordOfSaleId { get; set; }
+    public DateTime DateSold { get; set; }
+    public decimal Price { get; set; }
+
+    public string CarState { get; set; }
+    public string CarLicensePlate { get; set; }
+    public Car Car { get; set; }
+}
+```
+
+可以使用 `HasForeignKey(...)` 的字符串参数重载来将影子属性配置为外键（详见 [影子属性](./I、影子属性.md)）。我们建议在将影子属性用作外键之前显式将其添加到模型中（如下所示）。
+
+```C#
+class MyContext : DbContext
+{
+    public DbSet<Blog> Blogs { get; set; }
+    public DbSet<Post> Posts { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        // Add the shadow property to the model
+        modelBuilder.Entity<Post>()
+            .Property<int>("BlogForeignKey");
+
+        // Use the shadow property as a foreign key
+        modelBuilder.Entity<Post>()
+            .HasOne(p => p.Blog)
+            .WithMany(b => b.Posts)
+            .HasForeignKey("BlogForeignKey");
+    }
+}
+
+public class Blog
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+
+    public List<Post> Posts { get; set; }
+}
+
+public class Post
+{
+    public int PostId { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+
+    public Blog Blog { get; set; }
+}
+```
+
+### 主键
+
+如果想要让外键引用与主键不同的属性，可以使用流式 API 来配置关系中的主键属性。被配置为主键的属性将被自动设置为替代键（详见[替代键（备用关键字）](./L、替代键（备用关键字）.md)）
+
+```C#
+class MyContext : DbContext
+{
+    public DbSet<Car> Cars { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<RecordOfSale>()
+            .HasOne(s => s.Car)
+            .WithMany(c => c.SaleHistory)
+            .HasForeignKey(s => s.CarLicensePlate)
+            .HasPrincipalKey(c => c.LicensePlate);
+    }
+}
+
+public class Car
+{
+    public int CarId { get; set; }
+    public string LicensePlate { get; set; }
+    public string Make { get; set; }
+    public string Model { get; set; }
+
+    public List<RecordOfSale> SaleHistory { get; set; }
+}
+
+public class RecordOfSale
+{
+    public int RecordOfSaleId { get; set; }
+    public DateTime DateSold { get; set; }
+    public decimal Price { get; set; }
+
+    public string CarLicensePlate { get; set; }
+    public Car Car { get; set; }
+}
+```
+
+以下列出的代码显示了如何配置组合主键。
+
+```C#
+class MyContext : DbContext
+{
+    public DbSet<Car> Cars { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<RecordOfSale>()
+            .HasOne(s => s.Car)
+            .WithMany(c => c.SaleHistory)
+            .HasForeignKey(s => new { s.CarState, s.CarLicensePlate })
+            .HasPrincipalKey(c => new { c.State, c.LicensePlate });
+    }
+}
+
+public class Car
+{
+    public int CarId { get; set; }
+    public string State { get; set; }
+    public string LicensePlate { get; set; }
+    public string Make { get; set; }
+    public string Model { get; set; }
+
+    public List<RecordOfSale> SaleHistory { get; set; }
+}
+
+public class RecordOfSale
+{
+    public int RecordOfSaleId { get; set; }
+    public DateTime DateSold { get; set; }
+    public decimal Price { get; set; }
+
+    public string CarState { get; set; }
+    public string CarLicensePlate { get; set; }
+    public Car Car { get; set; }
+}
+```
+
+> 警告
+>
+> 指定主键属性的顺序必须与指定外键的顺序相匹配。
+
+### 必须的和可选的关系
+
+可以使用流式 API 来将一个关系配置为必须或者可选。从根本上说，这是将外键属性配置为必须或者可选。这在你使用影子状态外键时是很有用的。如果在你的实体类型中有一个外键属性，那么关系的必要性是基于外键属性的必要性来决定的（详见 [必须的和可选的属性](./F、必须的和可选的属性.md)）。
+
+```C#
+class MyContext : DbContext
+{
+    public DbSet<Blog> Blogs { get; set; }
+    public DbSet<Post> Posts { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Post>()
+            .HasOne(p => p.Blog)
+            .WithMany(b => b.Posts)
+            .IsRequired();
+    }
+}
+
+public class Blog
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+
+    public List<Post> Posts { get; set; }
+}
+
+public class Post
+{
+    public int PostId { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+
+    public Blog Blog { get; set; }
+}
+```
+
+### 级联删除
+
+可以使用流式 API 来显式配置给定关系的级联删除行为。
+
+查看 _保存数据_ 章节下的 [级联删除](../5、保存数据/D、级联删除.md) 可了解每个级联删除行为的详细论述。
+
+```C#
+class MyContext : DbContext
+{
+    public DbSet<Blog> Blogs { get; set; }
+    public DbSet<Post> Posts { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Post>()
+            .HasOne(p => p.Blog)
+            .WithMany(b => b.Posts)
+            .OnDelete(DeleteBehavior.Cascade);
+    }
+}
+
+public class Blog
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+
+    public List<Post> Posts { get; set; }
+}
+
+public class Post
+{
+    public int PostId { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+
+    public int? BlogId { get; set; }
+    public Blog Blog { get; set; }
+}
+```
+
 ## 其他关系模式
+
+### 一对一
+
+一对一关系在关系两端都有一个引用导航属性。他们遵循了与一对多关系相同的惯例，只是在外键属性上引入了唯一索引以确保只有一个依赖与彼此的主键关联。
+
+```C#
+public class Blog
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+
+    public BlogImage BlogImage { get; set; }
+}
+
+public class BlogImage
+{
+    public int BlogImageId { get; set; }
+    public byte[] Image { get; set; }
+    public string Caption { get; set; }
+
+    public int BlogId { get; set; }
+    public Blog Blog { get; set; }
+}
+```
+
+> 注意
+>
+> EF 会基于其检测外键属性的功能选择其中一个实体作为依赖实体。如果选择了错误的依赖实体，你可以使用流式 API 来修正它。
+
+当使用流式 API 配置关系时，可以使用 `HasOne` 和 `WithOne` 方法。
+
+在配置外键的时候，你需要指定依赖实体类型 - 注意一下列出代码中提供给 `HasForeignKey` 方法的泛型参数。在一对多关系中，引用导航指向的是依赖实体，集合导航指向的是主实体，这是很清晰的。但在一对一关系中却并非如此 - 因此需要显示定义它。
+
+```C#
+class MyContext : DbContext
+{
+    public DbSet<Blog> Blogs { get; set; }
+    public DbSet<BlogImage> BlogImages { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Blog>()
+            .HasOne(p => p.BlogImage)
+            .WithOne(i => i.Blog)
+            .HasForeignKey<BlogImage>(b => b.BlogForeignKey);
+    }
+}
+
+public class Blog
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+
+    public BlogImage BlogImage { get; set; }
+}
+
+public class BlogImage
+{
+    public int BlogImageId { get; set; }
+    public byte[] Image { get; set; }
+    public string Caption { get; set; }
+
+    public int BlogForeignKey { get; set; }
+    public Blog Blog { get; set; }
+}
+```
+
+### 多对多
+
+目前还不支持没有实体类型充当连接表的多对多关系。但是，你可以通过包含一个用于充当连接表的实体类型来描绘多对多关系，将其映射为两个独立的一对多关系。
+
+```C#
+class MyContext : DbContext
+{
+    public DbSet<Post> Posts { get; set; }
+    public DbSet<Tag> Tags { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<PostTag>()
+            .HasKey(t => new { t.PostId, t.TagId });
+
+        modelBuilder.Entity<PostTag>()
+            .HasOne(pt => pt.Post)
+            .WithMany(p => p.PostTags)
+            .HasForeignKey(pt => pt.PostId);
+
+        modelBuilder.Entity<PostTag>()
+            .HasOne(pt => pt.Tag)
+            .WithMany(t => t.PostTags)
+            .HasForeignKey(pt => pt.TagId);
+    }
+}
+
+public class Post
+{
+    public int PostId { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+
+    public List<PostTag> PostTags { get; set; }
+}
+
+public class Tag
+{
+    public string TagId { get; set; }
+
+    public List<PostTag> PostTags { get; set; }
+}
+
+public class PostTag
+{
+    public int PostId { get; set; }
+    public Post Post { get; set; }
+
+    public string TagId { get; set; }
+    public Tag Tag { get; set; }
+}
+```
