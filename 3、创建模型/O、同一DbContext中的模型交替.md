@@ -1,4 +1,4 @@
-# 同一 DbContext 类型中的多个模型互换
+# 同一 DbContext 类型中多个模型的交替
 
 在 `OnModelCreating` 中构建的模型可以使用 context 上的一个属性来更改模型的构建方式。例如这可以用来排除一个特定的属性：
 
