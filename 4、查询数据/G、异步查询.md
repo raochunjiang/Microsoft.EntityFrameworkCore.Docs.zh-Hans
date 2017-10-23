@@ -6,7 +6,7 @@
 >
 > EF Core 不支持在同一个上下文实例上运行多并行操作。应该总是在下一个操作开始之前等待上一个操作的完成。这通常是在每个异步操作上使用 `await` 关键字来实现的。
 
-Entity Framework Core 提供了一组用于触发执行查询和返回数的异步扩展方法来替代 LINQ 方法。样例包括 `ToListAsync()`、`ToArrayAsync()`、`SingleAsync()` 等等。而类似于 `Where(...)`、`OrderBy` 等等方法则没有相应的异步版本，因为这些方法只是用来构建表达式树，不会引发执行数据库查询。
+Entity Framework Core 提供了一组用于触发执行查询和返回数据的异步扩展方法来替代 LINQ 方法。样例包括 `ToListAsync()`、`ToArrayAsync()`、`SingleAsync()` 等等。而类似于 `Where(...)`、`OrderBy` 等等方法则没有相应的异步版本，因为这些方法只是用来构建表达式树，不会引发执行数据库查询。
 
 > 重要提示
 >
