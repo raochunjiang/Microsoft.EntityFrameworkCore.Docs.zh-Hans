@@ -35,7 +35,7 @@ modelBuilder.Entity<Employee>()
 
 以下代码会将两条 employee 数据插入到数据库中。
 
-* 对于第一条数据，不会为 `Employee.EmploymentStarted` 属性赋值，所以亦然会被设置为 `DateTime` 类型的运行时默认值。
+* 对于第一条数据，不会为 `Employee.EmploymentStarted` 属性赋值，所以其依然会被设置为 `DateTime` 类型的运行时默认值。
 * 对于第二条数据，我们显式将其值设置为 `1-Jan-2000`。
 
 ```C#
