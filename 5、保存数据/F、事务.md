@@ -100,7 +100,7 @@ public class BloggingContext : DbContext
 现在可以创建共享同一个连接的多个上下文了。之后可以使用`DbContext.Database.UseTransaction(DbTransaction))` API 来在一个事务中收集这些上下文。
 
 ```C#
-var options = new DbContextOptionsBuilder<BloggingContext>()
+        var options = new DbContextOptionsBuilder<BloggingContext>()
             .UseSqlServer(new SqlConnection(connectionString))
             .Options;
 
