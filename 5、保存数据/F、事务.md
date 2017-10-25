@@ -141,7 +141,7 @@ public class BloggingContext : DbContext
 以下代码样例显示了如何在同一个事务中执行一个 ADO.NET SqlClient 操作和一个 Entity Framework Core 操作。
 
 ```C#
-var connection = new SqlConnection(connectionString);
+        var connection = new SqlConnection(connectionString);
         connection.Open();
 
         using (var transaction = connection.BeginTransaction())
