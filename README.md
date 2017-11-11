@@ -67,6 +67,8 @@
     * [显式设置生成值属性的值](./5、保存数据/I、显式设置生成值属性的值.md)
 * [6、平台支持](./6、平台支持/A、平台支持.md)
 * [7、数据库提供程序](./7、数据库提供程序/A、数据库提供程序.md)
+    * [Microsoft SQL Server](./7、数据库提供程序/B、MicrosoftSQLServer/A、MicrosoftSQLServer.md)
+        * [内存优化表](./7、数据库提供程序/B、MicrosoftSQLServer/B、内存优化表.md)
 
 ## Entity Framework Core 快速预览
 
