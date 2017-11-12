@@ -81,6 +81,7 @@
     * [Oracle（尚不可用）](./7、数据库提供程序/K、Oracle（尚不可用）.md)
     * [MyCat](./7、数据库提供程序/L、MyCat.md)
     * [编写自己的数据库提供程序](./7、数据库提供程序/M、自己编写数据库提供程序.md)
+* [API 引用](./8、API引用/A、API引用.md)
 
 ## Entity Framework Core 快速预览
 
