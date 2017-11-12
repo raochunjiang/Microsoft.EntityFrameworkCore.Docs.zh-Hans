@@ -83,6 +83,7 @@
     * [编写自己的数据库提供程序](./7、数据库提供程序/M、自己编写数据库提供程序.md)
 * [API 引用](https://docs.microsoft.com/dotnet/api/?view=efcore-2.0)
 * [命令行引用](./9、命令行引用/A、命令行引用.md)
+    * [程序包管理控制台（Visual Studio）](./9、命令行引用/B、程序包管理控制台（VisualStudio）.md)
 
 ## Entity Framework Core 快速预览
 
