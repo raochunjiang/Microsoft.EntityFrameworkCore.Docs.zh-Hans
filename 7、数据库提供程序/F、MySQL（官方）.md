@@ -1,6 +1,6 @@
 # MySQL EF Core 数据库提供程序
 
-该数据库提供程序允许 Entity Framework Core 被用于访问 MySQL。它被作为 [MySQL 项目](http://dev.mysql.com//)的一部分来维护。
+该数据库提供程序允许 Entity Framework Core 被用于访问 MySQL。它被作为 [MySQL 项目](http://dev.mysql.com/)的一部分来维护。
 
 > 警告
 >
