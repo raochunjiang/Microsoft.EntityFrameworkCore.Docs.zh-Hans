@@ -71,6 +71,7 @@
         * [内存优化表](./7、数据库提供程序/B、MicrosoftSQLServer/B、内存优化表.md)
     * [SQLite](./7、数据库提供程序/C、SQLite/A、SQLite.md)
         * [SQLite 局限性](./7、数据库提供程序/C、SQLite/B、SQLite局限性.md)
+    * [PostgreSQL（Npgsql）](./7、数据库提供程序/D、PostgreSQL（Npgsql）.md)
 
 ## Entity Framework Core 快速预览
 
