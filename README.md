@@ -73,6 +73,8 @@
         * [SQLite 局限性](./7、数据库提供程序/C、SQLite/B、SQLite局限性.md)
     * [PostgreSQL（Npgsql）](./7、数据库提供程序/D、PostgreSQL（Npgsql）.md)
     * [IBM Data Server](./7、数据库提供程序/E、IBMDataServer（DB2）.md)
+    * [MySQL（官方）](./7、数据库提供程序/F、MySQL（官方）.md)
+    * [MySQL（柚子）](./7、数据库提供程序/F、MySQL（柚子）.md)
 
 ## Entity Framework Core 快速预览
 
