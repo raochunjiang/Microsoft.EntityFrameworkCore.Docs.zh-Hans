@@ -32,4 +32,4 @@ PM> Install-Package Microsoft.EntityFrameworkCore.SQLite
 
 ## 局限性
 
-查看 [SQLite 局限性](./B、SQLite 局限性.md) 以了解 EF Core SQLite 提供程序的一些重要局限性。
+查看 [SQLite 局限性](./B、SQLite局限性.md) 以了解 EF Core SQLite 提供程序的一些重要局限性。
