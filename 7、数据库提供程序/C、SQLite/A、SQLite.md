@@ -4,7 +4,7 @@
 
 ## 安装
 
-安装 `Microsoft.EntityFrameworkCore.SQLite NuGet 程序包`。
+安装 [`Microsoft.EntityFrameworkCore.SQLite NuGet 程序包`](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SQLite/)。
 
 ```console
 PM> Install-Package Microsoft.EntityFrameworkCore.SQLite

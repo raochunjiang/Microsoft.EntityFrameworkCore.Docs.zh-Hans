@@ -8,7 +8,7 @@
 
 ## 安装
 
-安装 `Npgsql.EntityFrameworkCore.PostgreSQL NuGet 程序包`。
+安装 [`Npgsql.EntityFrameworkCore.PostgreSQL NuGet 程序包`](https://www.nuget.org/packages/Npgsql.EntityFrameworkCore.PostgreSQL)。
 
 ```console
 PM> Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
