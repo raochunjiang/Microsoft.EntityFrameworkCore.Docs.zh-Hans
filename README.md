@@ -78,7 +78,7 @@
     * [Microsoft SQL Server Compact Edition](./7、数据库提供程序/H、MicrosoftSQLServer精简版.md)
     * [内存数据库（用于测试）](./7、数据库提供程序/I、内存数据库（用于测试）.md)
     * [Devart（MySQL、Oracle、PostgreSQL、SQLite、DB2、更多）](./7、数据库提供程序/J、Devart（MySQL、Oracle、PostgreSQL、SQLite、DB2、更多）.md)
-
+    * [Oracle（尚不可用）](./7、数据库提供程序/K、Oracle（尚不可用）.md)
     
 
 ## Entity Framework Core 快速预览
