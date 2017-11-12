@@ -38,4 +38,4 @@ SQLite 数据库引擎不支持一些其他主要的关系数据库支持的模�
 
 查看 SQLite 文档中的 [其他类型的表模式更改](http://sqlite.org/lang_altertable.html#otheralter) 可以了解更详细的信息。
 
-未来 EF 可能会通过其中的数据表重建的方式来支持上述的一些操作。你可以 [在我们的 GitHub 项目上跟踪这个功能](https://github.com/aspnet/EntityFramework/issues/329)。
+未来 EF 可能会通过上述数据表重建的方式来支持其中的一些操作。你可以 [在我们的 GitHub 项目上跟踪这个功能](https://github.com/aspnet/EntityFramework/issues/329)。
