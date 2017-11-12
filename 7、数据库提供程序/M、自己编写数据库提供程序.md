@@ -1,6 +1,6 @@
 # 自己编写数据库提供程序
 
-关于编写 Entity Framework Core 数据库提供程序的更所信息，请查阅  [Arthur Vickers](https://github.com/ajcvickers) 的 [你因此想要编写一个 EF Core 提供程序](https://blog.oneunicorn.com/2016/11/11/so-you-want-to-write-an-ef-core-provider/)。
+关于编写 Entity Framework Core 数据库提供程序的更多信息，请查阅  [Arthur Vickers](https://github.com/ajcvickers) 的 [你因此想要编写一个 EF Core 提供程序](https://blog.oneunicorn.com/2016/11/11/so-you-want-to-write-an-ef-core-provider/)。
 
 EF Core 代码基础是开源的，其中包含一些可以以引用方式使用的数据库提供程序。你可以在 <https://github.com/aspnet/EntityFramework> 中找到源代码。
 
