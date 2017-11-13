@@ -85,6 +85,9 @@
 * [命令行引用](./9、命令行引用/A、命令行引用.md)
     * [程序包管理控制台（Visual Studio）](./9、命令行引用/B、程序包管理控制台（VisualStudio）.md)
     * [.NET Core CLI](./9、命令行引用/C、.NETCoreCLI.md)
+* [工具集 & 扩展](./10、工具集&扩展/A、工具集&扩展.md)
+    * [LLBLGen Pro](./10、工具集&扩展/B、LLBLGenPro.md)
+    * [Devart Entity Developer](./10、工具集&扩展/C、DevartEntityDeveloper.md)
 
 ## Entity Framework Core 快速预览
 
