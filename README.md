@@ -99,6 +99,8 @@
     * [Microsoft.EntityFrameworkCore.AutoHistory](./10、工具集&扩展/L、Microsoft.EntityFrameworkCore.AutoHistory.md)
     * [Microsoft.EntityFrameworkCore.DynamicLinq](./10、工具集&扩展/M、Microsoft.EntityFrameworkCore.DynamicLinq.md)
     * [Microsoft.EntityFrameworkCore.UnitOfWork](./10、工具集&扩展/N、Microsoft.EntityFrameworkCore.UnitOfWork.md)
+* 其他
+    * [连接字符串](./11、其他/B、连接字符串.md)
 
 ## Entity Framework Core 快速预览
 
