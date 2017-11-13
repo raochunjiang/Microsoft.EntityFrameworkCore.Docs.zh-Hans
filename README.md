@@ -88,6 +88,11 @@
 * [工具集 & 扩展](./10、工具集&扩展/A、工具集&扩展.md)
     * [LLBLGen Pro](./10、工具集&扩展/B、LLBLGenPro.md)
     * [Devart Entity Developer](./10、工具集&扩展/C、DevartEntityDeveloper.md)
+    * [EFSecondLevelCache.Core](./10、工具集&扩展/D、EFSecondLevelCache.Core.md)
+    * [EntityFrameworkCore.Detached](./10、工具集&扩展/E、EntityFrameworkCore.Detached.md)
+    * [EntityFrameworkCore.Triggers](./10、工具集&扩展/F、EntityFrameworkCore.Triggers.md)
+    * [EntityFrameworkCore.Rx](./10、工具集&扩展/G、EntityFrameworkCore.Rx.md)
+    * [EntityFrameworkCore.PrimaryKey](./10、工具集&扩展/H、EntityFrameworkCore.PrimaryKey.md)
 
 ## Entity Framework Core 快速预览
 
