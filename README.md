@@ -96,9 +96,9 @@
     * [EntityFrameworkCore.TypedOriginalValues](./10、工具集&扩展/I、EntityFrameworkCore.TypedOriginalValues.md)
     * [EFCore.Practices](./10、工具集&扩展/J、EFCore.Practices.md)
     * [LinqKit.Microsoft.EntityFrameworkCore](./10、工具集&扩展/K、LinqKit.Microsoft.EntityFrameworkCore.md)
-    * [EntityFrameworkCore.AutoHistory](./10、工具集&扩展/L、EntityFrameworkCore.AutoHistory.md)
-    * [EntityFrameworkCore.DynamicLinq](./10、工具集&扩展/M、EntityFrameworkCore.DynamicLinq.md)
-    * [EntityFrameworkCore.UnitOfWork](./10、工具集&扩展/N、EntityFrameworkCore.UnitOfWork.md)
+    * [Microsoft.EntityFrameworkCore.AutoHistory](./10、工具集&扩展/L、Microsoft.EntityFrameworkCore.AutoHistory.md)
+    * [Microsoft.EntityFrameworkCore.DynamicLinq](./10、工具集&扩展/M、Microsoft.EntityFrameworkCore.DynamicLinq.md)
+    * [Microsoft.EntityFrameworkCore.UnitOfWork](./10、工具集&扩展/N、Microsoft.EntityFrameworkCore.UnitOfWork.md)
 
 ## Entity Framework Core 快速预览
 
