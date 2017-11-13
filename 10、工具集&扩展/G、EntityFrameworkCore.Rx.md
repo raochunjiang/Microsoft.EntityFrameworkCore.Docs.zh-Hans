@@ -6,6 +6,6 @@
 
 对 Entity Framework 实体热观察的响应扩展包装器。
 
-以下资源有助于你入门使用 EntityFrameworkCore.Triggers。
+以下资源有助于你入门使用 EntityFrameworkCore.Rx
 
 * [EntityFrameworkCore.Rx GitHub 仓库](https://github.com/NickStrupat/EntityFramework.Rx/)
