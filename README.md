@@ -84,6 +84,7 @@
 * [API 引用](https://docs.microsoft.com/dotnet/api/?view=efcore-2.0)
 * [命令行引用](./9、命令行引用/A、命令行引用.md)
     * [程序包管理控制台（Visual Studio）](./9、命令行引用/B、程序包管理控制台（VisualStudio）.md)
+    * [.NET Core CLI](./9、命令行引用/C、.NETCoreCLI.md)
 
 ## Entity Framework Core 快速预览
 
