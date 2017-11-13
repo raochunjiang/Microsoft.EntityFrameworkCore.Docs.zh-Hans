@@ -55,7 +55,7 @@ public class BloggingContext : DbContext
 
 ## ASP.NET Core
 
- ASP.NET Core 中的配置系统非常灵活，连接字符串可以存储在 `appsettings.json` 、环境变量、用户私密存储或者其他配置源中，详见 [ASP.NET Core 帮助文档中的配置节](https://docs.asp.net/en/latest/fundamentals/configuration.html)。一下样例展示了存储在 `appsettings.json` 中的连接字符串。
+ ASP.NET Core 中的配置系统非常灵活，连接字符串可以存储在 `appsettings.json` 、环境变量、用户私密存储或者其他配置源中，详见 [ASP.NET Core 帮助文档中的配置节](https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/configuration?tabs=basicconfiguration)。一下样例展示了存储在 `appsettings.json` 中的连接字符串。
 
  ```json
  {
