@@ -115,7 +115,7 @@ EF Core 是一个对象关系映射（O/RM）框架，它允许 .NET 开发者�
 如果你们熟悉 EF Core 并且想要直接跳到新版本的内容细节上，请查阅：
 
 * [EF Core 2.0 新特性](./1、EFCore2.0新特性/A、EFCore2.0新特性.md)
-* [将现有应用程序升级到 EF Core 2.0](./11、其他/H、升级到EFCore2.0.md)
+* [将现有应用程序升级到 EF Core 2.0](./11、其他/I、升级到EFCore2.0.md)
 
 ### 获取 Entity Framework Core
 
