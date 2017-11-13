@@ -93,6 +93,12 @@
     * [EntityFrameworkCore.Triggers](./10、工具集&扩展/F、EntityFrameworkCore.Triggers.md)
     * [EntityFrameworkCore.Rx](./10、工具集&扩展/G、EntityFrameworkCore.Rx.md)
     * [EntityFrameworkCore.PrimaryKey](./10、工具集&扩展/H、EntityFrameworkCore.PrimaryKey.md)
+    * [EntityFrameworkCore.TypedOrignialValues](./10、工具集&扩展/I、EntityFrameworkCore.TypedOrignialValues.md)
+    * [EFCore.Practices](./10、工具集&扩展/J、EFCore.Practices.md)
+    * [LinqKit.Microsoft.EntityFrameworkCore](./10、工具集&扩展/K、LinqKit.Microsoft.EntityFrameworkCore.md)
+    * [EntityFrameworkCore.AutoHistory](./10、工具集&扩展/L、EntityFrameworkCore.AutoHistory.md)
+    * [EntityFrameworkCore.DynamicLinq](./10、工具集&扩展/M、EntityFrameworkCore.DynamicLinq.md)
+    * [EntityFrameworkCore.UnitOfWork](./10、工具集&扩展/N、EntityFrameworkCore.UnitOfWork.md)
 
 ## Entity Framework Core 快速预览
 
