@@ -101,6 +101,7 @@
     * [Microsoft.EntityFrameworkCore.UnitOfWork](./10、工具集&扩展/N、Microsoft.EntityFrameworkCore.UnitOfWork.md)
 * 其他
     * [连接字符串](./11、其他/B、连接字符串.md)
+    * [日志记录](./11、其他/C、日志记录.md)
 
 ## Entity Framework Core 快速预览
 
