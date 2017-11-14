@@ -30,7 +30,7 @@ public static readonly LoggerFactory MyLoggerFactory = new LoggerFactory(new[] {
 ```C#
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     => optionsBuilder
-        .UseLoggerFactory(MyLoggerFactory) // Warning: Do not create a new ILoggerFactory instance each time
+        .UseLoggerFactory(MyLoggerFactory) // 不要每次都创建新的 ILoggerFactory 实例
         .UseSqlServer(
             @"Server=(localdb)\mssqllocaldb;Database=EFLogging;Trusted_Connection=True;ConnectRetryCount=0");
 ```
