@@ -106,6 +106,7 @@
     * [测试](./11、其他/E、测试/A、测试.md)
         * [使用 SQLite 测试](./11、其他/E、测试/B、使用SQLite测试.md)
         * [使用内存数据库测试](./11、其他/E、测试/C、使用内存数据库测试.md)
+    * [配置 DbContext](./11、其他/F、配置DbContext.md)
 
 ## Entity Framework Core 快速预览
 
