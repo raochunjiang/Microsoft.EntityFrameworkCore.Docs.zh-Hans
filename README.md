@@ -107,6 +107,9 @@
         * [使用 SQLite 测试](./11、其他/E、测试/B、使用SQLite测试.md)
         * [使用内存数据库测试](./11、其他/E、测试/C、使用内存数据库测试.md)
     * [配置 DbContext](./11、其他/F、配置DbContext.md)
+    * [从 1.0 RC 升级到 RC2](https://docs.microsoft.com/zh-cn/ef/core/miscellaneous/rc1-rc2-upgrade)
+    * [从 1.0 RC2 升级到 RTM](https://docs.microsoft.com/zh-cn/ef/core/miscellaneous/rc2-rtm-upgrade)
+    * [升级到 EF Core 2.0](https://docs.microsoft.com/zh-cn/ef/core/miscellaneous/1x-2x-upgrade)
 
 ## Entity Framework Core 快速预览
 
