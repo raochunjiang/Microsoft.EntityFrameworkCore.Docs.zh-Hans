@@ -101,7 +101,7 @@ namespace TestProject.SQLite
         [TestMethod]
         public void Add_writes_to_database()
         {
-            // In-memory database only exists while the connection is open
+            // 内存数据库只在链接打开时存在
             var connection = new SqliteConnection("DataSource=:memory:");
             connection.Open();
 
@@ -111,20 +111,20 @@ namespace TestProject.SQLite
                     .UseSqlite(connection)
                     .Options;
 
-                // Create the schema in the database
+                // 在数据库中创建模式
                 using (var context = new BloggingContext(options))
                 {
                     context.Database.EnsureCreated();
                 }
 
-                // Run the test against one instance of the context
+                // 针对一个 context 实例运行测试
                 using (var context = new BloggingContext(options))
-                { 
+                {
                     var service = new BlogService(context);
                     service.Add("http://sample.com");
                 }
 
-                // Use a separate instance of the context to verify correct data was saved to database
+                // 使用独立的 context 实例验证是否已将正确的数据保存到了数据库
                 using (var context = new BloggingContext(options))
                 {
                     Assert.AreEqual(1, context.Blogs.Count());
@@ -140,7 +140,7 @@ namespace TestProject.SQLite
         [TestMethod]
         public void Find_searches_url()
         {
-            // In-memory database only exists while the connection is open
+            // 内存数据库只在链接打开时存在
             var connection = new SqliteConnection("DataSource=:memory:");
             connection.Open();
 
@@ -150,13 +150,13 @@ namespace TestProject.SQLite
                     .UseSqlite(connection)
                     .Options;
 
-                // Create the schema in the database
+                // 在数据库中创建模式
                 using (var context = new BloggingContext(options))
                 {
                     context.Database.EnsureCreated();
                 }
 
-                // Insert seed data into the database using one instance of the context
+                // 使用一个 context 实例将种子数据插入到数据库中
                 using (var context = new BloggingContext(options))
                 {
                     context.Blogs.Add(new Blog { Url = "http://sample.com/cats" });
@@ -165,7 +165,7 @@ namespace TestProject.SQLite
                     context.SaveChanges();
                 }
 
-                // Use a clean instance of the context to run the test
+                // 用于清理运行测试的 context 实例
                 using (var context = new BloggingContext(options))
                 {
                     var service = new BlogService(context);
