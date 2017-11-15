@@ -2,6 +2,8 @@
 
 微软 EntityFrameworkCore 中文文档
 
+![捐赠](./donate.png)
+
 ## 大纲
 
 * [1、EF Core 2.0 新特性](./1、EFCore2.0新特性/A、EFCore2.0新特性.md)
